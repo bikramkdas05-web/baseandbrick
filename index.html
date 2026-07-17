@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base and Brick Engineering Consultant Pvt. Ltd. — Environmental Compliance, Nepal</title>
+<meta name="description" content="Base and Brick Engineering Consultant Pvt. Ltd. — IEE, EIA, EMP and environmental compliance services for infrastructure and hydropower projects in Nepal. Based in Rajbiraj, Saptari.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay: #9C3F2C;
+    --clay-dark: #7A311F;
+    --clay-light: #C15B3F;
+    --charcoal: #211D19;
+    --charcoal-2: #2B2620;
+    --stone: #EBE4D8;
+    --stone-2: #F4EEE3;
+    --moss: #566246;
+    --moss-light: #7C8A67;
+    --mortar: #C9BFAF;
+    --ink: #211D19;
+    --paper-ink: #4A423A;
+    --max-w: 1180px;
+    --radius-s: 2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--stone-2);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--charcoal);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 28px;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  ::selection{background:var(--clay); color:var(--stone-2);}
+  :focus-visible{outline:3px solid var(--clay); outline-offset:3px;}
+
+  /* ---------- brick coursing signature (SVG pattern) ---------- */
+  .bricks-row{display:flex; width:100%; overflow:hidden;}
+  .bricks-row .brick{
+    height:14px; flex:0 0 auto; margin-right:3px;
+    background:var(--clay);
+  }
+  .brick-divider{width:100%; overflow:hidden; line-height:0;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,238,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--mortar);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:var(--max-w); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{width:28px; height:28px; flex:0 0 auto;}
+  .brand-text{font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; line-height:1.15;}
+  .brand-text small{display:block; font-family:'IBM Plex Mono', monospace; font-weight:400; font-size:0.62rem; letter-spacing:0.08em; color:var(--paper-ink); text-transform:uppercase; margin-top:2px;}
+  nav.links{display:flex; gap:28px; font-size:0.92rem; font-weight:500;}
+  nav.links a{position:relative; padding:4px 0; color:var(--paper-ink);}
+  nav.links a:hover{color:var(--clay);}
+  .nav-cta{
+    background:var(--clay); color:var(--stone-2); padding:10px 18px;
+    font-size:0.86rem; font-weight:600; border-radius:var(--radius-s);
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--clay-dark);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:4px;}
+  .menu-btn svg{width:24px; height:24px; stroke:var(--charcoal);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--charcoal);
+    color:var(--stone-2);
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 0;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--clay-light); margin-bottom:22px;
+  }
+  .eyebrow::before{content:''; width:26px; height:2px; background:var(--clay-light); display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.4rem);
+    color:var(--stone-2);
+    max-width:15ch;
+    line-height:1.04;
+    margin-bottom:26px;
+  }
+  .hero h1 em{font-style:italic; color:var(--clay-light); font-weight:500;}
+  .hero p.lede{
+    font-size:1.12rem; max-width:52ch; color:#D8D0C2; margin-bottom:38px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:64px;}
+  .btn-primary{
+    background:var(--clay); color:var(--stone-2); padding:14px 26px;
+    font-weight:600; font-size:0.94rem; border-radius:var(--radius-s);
+    transition:background 0.2s ease, transform 0.2s ease; display:inline-block;
+  }
+  .btn-primary:hover{background:var(--clay-light); transform:translateY(-1px);}
+  .btn-ghost{
+    border:1px solid #57503F; color:var(--stone-2); padding:14px 26px;
+    font-weight:600; font-size:0.94rem; border-radius:var(--radius-s);
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--clay-light); background:rgba(193,91,63,0.08);}
+
+  .hero-strip{border-top:1px solid #423C33;}
+  .hero-strip .wrap{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    padding:22px 28px;
+  }
+  .hero-strip .stat{padding:0 20px; border-left:1px solid #423C33;}
+  .hero-strip .stat:first-child{border-left:none; padding-left:0;}
+  .hero-strip .stat .num{font-family:'Fraunces',serif; font-size:1.5rem; color:var(--clay-light); font-weight:600;}
+  .hero-strip .stat .label{font-size:0.78rem; color:#A79E8D; margin-top:2px;}
+
+  .hero-wall{height:60px; margin-top:56px;}
+
+  /* ---------- section shell ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head .eyebrow{color:var(--clay);}
+  .section-head .eyebrow::before{background:var(--clay);}
+  .section-head h2{font-size:clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom:14px;}
+  .section-head p{color:var(--paper-ink); font-size:1.02rem;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--stone-2);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;}
+  .about-copy p{color:var(--paper-ink); margin-bottom:18px; font-size:1.02rem;}
+  .about-copy p:last-child{margin-bottom:0;}
+  .credential-card{
+    background:var(--charcoal); color:var(--stone-2); padding:32px;
+    border-radius:var(--radius-s); position:relative;
+  }
+  .credential-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:6px;
+    background:repeating-linear-gradient(90deg, var(--clay) 0 22px, transparent 22px 25px);
+  }
+  .credential-card h4{color:var(--stone-2); font-size:1.1rem; margin-bottom:18px;}
+  .credential-list{list-style:none;}
+  .credential-list li{
+    display:flex; gap:12px; padding:12px 0; border-top:1px solid #423C33;
+    font-size:0.92rem; color:#D8D0C2;
+  }
+  .credential-list li:first-child{border-top:none;}
+  .credential-list .tag{font-family:'IBM Plex Mono',monospace; color:var(--clay-light); font-size:0.78rem; flex:0 0 68px;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--stone);}
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--mortar); border:1px solid var(--mortar);}
+  .service-card{background:var(--stone-2); padding:34px 30px; transition:background 0.2s ease;}
+  .service-card:hover{background:#fff;}
+  .service-card .idx{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--clay); margin-bottom:20px; display:block;}
+  .service-card h3{font-size:1.18rem; margin-bottom:12px; line-height:1.25;}
+  .service-card p{color:var(--paper-ink); font-size:0.93rem;}
+
+  /* ---------- process (numbered — real sequence) ---------- */
+  .process{background:var(--charcoal); color:var(--stone-2);}
+  .process .section-head p{color:#B7AE9D;}
+  .process .section-head .eyebrow{color:var(--clay-light);}
+  .process .section-head .eyebrow::before{background:var(--clay-light);}
+  .process-track{position:relative;}
+  .process-row{
+    display:grid; grid-template-columns:100px 1fr; gap:28px;
+    padding:26px 0; border-top:1px solid #423C33;
+    opacity:0; transform:translateY(16px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .process-row.in{opacity:1; transform:translateY(0);}
+  .process-row:last-child{border-bottom:1px solid #423C33;}
+  .process-row .step-brick{display:flex; align-items:flex-start;}
+  .process-row .step-brick .num{font-family:'Fraunces',serif; font-size:1.7rem; color:var(--clay-light); font-weight:600;}
+  .process-row h4{color:var(--stone-2); font-size:1.12rem; margin-bottom:8px;}
+  .process-row p{color:#B7AE9D; font-size:0.95rem; max-width:62ch;}
+
+  /* ---------- sectors ---------- */
+  .sectors{background:var(--stone-2);}
+  .sector-chips{display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{
+    border:1px solid var(--mortar); padding:11px 20px; border-radius:999px;
+    font-size:0.9rem; color:var(--paper-ink); font-weight:500;
+    display:flex; align-items:center; gap:8px;
+  }
+  .chip .dot{width:7px; height:7px; background:var(--moss); border-radius:50%; flex:0 0 auto;}
+
+  /* ---------- why us ---------- */
+  .why{background:var(--moss); color:var(--stone-2);}
+  .why .section-head .eyebrow{color:#E4D9C4;}
+  .why .section-head .eyebrow::before{background:#E4D9C4;}
+  .why .section-head h2, .why .section-head p{color:var(--stone-2);}
+  .why .section-head p{color:#DCE0D3;}
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px;}
+  .why-card{background:rgba(0,0,0,0.12); padding:30px 26px;}
+  .why-card h4{color:var(--stone-2); font-size:1.05rem; margin-bottom:10px;}
+  .why-card p{color:#DCE0D3; font-size:0.92rem;}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--stone);}
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+  .contact-info h3{font-size:1.3rem; margin-bottom:22px;}
+  .info-row{display:flex; gap:16px; padding:16px 0; border-top:1px solid var(--mortar);}
+  .info-row:first-of-type{border-top:none;}
+  .info-row .k{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--clay); text-transform:uppercase; letter-spacing:0.08em; flex:0 0 90px; padding-top:2px;}
+  .info-row .v{color:var(--ink); font-size:0.98rem;}
+  .info-row .v small{display:block; color:var(--paper-ink); font-size:0.82rem; margin-top:3px;}
+
+  form{background:var(--stone-2); padding:36px; border-radius:var(--radius-s); border:1px solid var(--mortar);}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field.full{grid-column:1 / -1;}
+  label{font-size:0.8rem; font-weight:600; color:var(--paper-ink);}
+  input, textarea, select{
+    border:1px solid var(--mortar); background:#fff; padding:11px 13px;
+    font-family:'Inter',sans-serif; font-size:0.94rem; border-radius:var(--radius-s); color:var(--ink);
+  }
+  input:focus, textarea:focus, select:focus{border-color:var(--clay);}
+  textarea{resize:vertical; min-height:100px;}
+  .submit-btn{
+    background:var(--clay); color:var(--stone-2); padding:13px 26px; border:none;
+    font-weight:600; font-size:0.94rem; border-radius:var(--radius-s); cursor:pointer;
+    transition:background 0.2s ease; width:100%;
+  }
+  .submit-btn:hover{background:var(--clay-dark);}
+  .form-note{font-size:0.78rem; color:var(--paper-ink); margin-top:12px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--charcoal); color:#B7AE9D; padding:48px 0 28px;}
+  .footer-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; padding-bottom:32px; border-bottom:1px solid #423C33; margin-bottom:24px;}
+  .footer-brand .brand-text{color:var(--stone-2);}
+  .footer-links{display:flex; gap:48px; flex-wrap:wrap;}
+  .footer-col h5{font-size:0.76rem; text-transform:uppercase; letter-spacing:0.08em; color:#8B8271; margin-bottom:14px; font-family:'IBM Plex Mono',monospace;}
+  .footer-col a, .footer-col span{display:block; font-size:0.88rem; margin-bottom:9px; color:#D8D0C2;}
+  .footer-col a:hover{color:var(--clay-light);}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.78rem; color:#8B8271;}
+
+  /* reveal utility */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+    .about-grid, .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .hero-strip .wrap{grid-template-columns:1fr 1fr; row-gap:18px;}
+    .hero-strip .stat:nth-child(3){border-left:none;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:600px){
+    .service-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    .hero{padding-top:76px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal, .process-row{opacity:1 !important; transform:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="17" width="12" height="9" fill="#9C3F2C"/>
+        <rect x="15" y="17" width="12" height="9" fill="#9C3F2C"/>
+        <rect x="8" y="7" width="12" height="9" fill="#211D19"/>
+        <rect x="1" y="7" width="5" height="9" fill="#211D19"/>
+        <rect x="22" y="7" width="5" height="9" fill="#211D19"/>
+      </svg>
+      <span class="brand-text">Base and Brick<small>Engineering Consultant Pvt. Ltd.</small></span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Request a Consultation</a>
+    <button class="menu-btn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="eyebrow">Environmental Compliance &amp; Engineering</div>
+      <h1>Every clearance, <em>laid brick by brick.</em></h1>
+      <p class="lede">Base and Brick Engineering Consultant Pvt. Ltd. prepares IEE, EIA and Environmental Management Plans that hold up in the field and at the regulator's desk — for hydropower, roads and infrastructure projects across Nepal.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">Start a Project</a>
+        <a class="btn-ghost" href="#services">View Services</a>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div class="wrap">
+        <div class="stat"><div class="num">IEE · EIA · EMP</div><div class="label">Core deliverables under Nepal's environmental framework</div></div>
+        <div class="stat"><div class="num">Field-based</div><div class="label">Baseline studies &amp; site verification</div></div>
+        <div class="stat"><div class="num">Madhesh &amp; Beyond</div><div class="label">Rooted in Saptari, working nationwide</div></div>
+        <div class="stat"><div class="num">Multi-disciplinary</div><div class="label">Environment, engineering &amp; social specialists</div></div>
+      </div>
+    </div>
+    <div class="hero-wall" id="brick-wall"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:28px;">
+            <div class="eyebrow">Who We Are</div>
+            <h2>A local firm built for the paperwork that protects real ground.</h2>
+          </div>
+          <div class="about-copy reveal">
+            <p>Base and Brick Engineering Consultant Pvt. Ltd. is an environmental and engineering consultancy headquartered in Rajbiraj, Saptari. We work with project proponents, contractors and public agencies to move development projects through Nepal's environmental clearance process — from initial screening to post-construction monitoring.</p>
+            <p>Our name reflects how we work: every assessment is built on a verified base — site visits, baseline data, stakeholder consultation — before a single brick of mitigation planning or regulatory documentation is laid on top. Reports assembled without that base don't survive review, or the monsoon.</p>
+            <p>We support hydropower developers, road and transmission line contractors, industries and municipal bodies across the Madhesh plains and the hill corridors that feed them.</p>
+          </div>
+        </div>
+        <div class="credential-card reveal">
+          <h4>What we prepare</h4>
+          <ul class="credential-list">
+            <li><span class="tag">IEE</span><span>Initial Environmental Examination reports for Schedule 1 projects</span></li>
+            <li><span class="tag">EIA</span><span>Environmental Impact Assessment for Schedule 2 projects, including scoping documents</span></li>
+            <li><span class="tag">EMP</span><span>Environmental Management &amp; Monitoring Plans with site-specific mitigation measures</span></li>
+            <li><span class="tag">SIA</span><span>Social impact screening and resettlement/compensation support</span></li>
+            <li><span class="tag">AUDIT</span><span>Compliance monitoring reports and third-party environmental audits</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Services</div>
+        <h2>Compliance work, taken seriously at every stage.</h2>
+        <p>From the first screening question to the last monitoring report, we handle the documentation and fieldwork that keeps a project inside the law.</p>
+      </div>
+      <div class="service-grid reveal">
+        <div class="service-card">
+          <span class="idx">01</span>
+          <h3>Initial Environmental Examination (IEE)</h3>
+          <p>Screening, baseline data collection and report preparation for projects that fall under Schedule 1 of Nepal's environmental regulations.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">02</span>
+          <h3>Environmental Impact Assessment (EIA)</h3>
+          <p>Full-scale impact assessment, scoping documents and terms of reference for larger infrastructure and hydropower projects.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">03</span>
+          <h3>Environmental Management Plans (EMP)</h3>
+          <p>Site-specific mitigation, monitoring and institutional arrangements, built to be implementable by contractors and supervised by project owners.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">04</span>
+          <h3>Compliance Monitoring &amp; Audit</h3>
+          <p>Periodic monitoring visits, compliance status reports and third-party audits for projects already under implementation.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">05</span>
+          <h3>Social &amp; Resettlement Support</h3>
+          <p>Social impact screening, public consultation facilitation and support for land acquisition and compensation processes.</p>
+        </div>
+        <div class="service-card">
+          <span class="idx">06</span>
+          <h3>Regulatory Liaison</h3>
+          <p>Coordination with the Ministry of Forests and Environment, provincial environment units and project-specific regulatory bodies through to clearance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How We Work</div>
+        <h2>A fixed sequence, because the regulation is a fixed sequence.</h2>
+        <p>Environmental clearance in Nepal follows a defined order. We follow it too — nothing here is optional or reorderable.</p>
+      </div>
+      <div class="process-track">
+        <div class="process-row">
+          <div class="step-brick"><span class="num">01</span></div>
+          <div><h4>Screening &amp; Scoping</h4><p>We classify the project against Nepal's environmental schedules, define the study boundary and draft the terms of reference.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="step-brick"><span class="num">02</span></div>
+          <div><h4>Baseline &amp; Field Investigation</h4><p>Site visits, physical and biological baseline surveys, and consultation with affected communities and local government.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="step-brick"><span class="num">03</span></div>
+          <div><h4>Impact Assessment</h4><p>Identification and evaluation of predicted impacts across construction and operation phases.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="step-brick"><span class="num">04</span></div>
+          <div><h4>EMP &amp; Mitigation Design</h4><p>Mitigation measures matched to each identified impact, with implementation responsibility and monitoring indicators assigned.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="step-brick"><span class="num">05</span></div>
+          <div><h4>Regulatory Submission</h4><p>Report finalization, public review coordination and submission to the relevant approving body.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="step-brick"><span class="num">06</span></div>
+          <div><h4>Monitoring &amp; Audit</h4><p>Post-approval compliance monitoring through construction and operation, with periodic reporting.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="sectors" id="sectors">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Sectors</div>
+        <h2>Where our clients build.</h2>
+      </div>
+      <div class="sector-chips reveal">
+        <span class="chip"><span class="dot"></span>Hydropower &amp; Water Resources</span>
+        <span class="chip"><span class="dot"></span>Roads &amp; Highways</span>
+        <span class="chip"><span class="dot"></span>Transmission Lines &amp; Substations</span>
+        <span class="chip"><span class="dot"></span>Irrigation &amp; Embankments</span>
+        <span class="chip"><span class="dot"></span>Industry &amp; Manufacturing</span>
+        <span class="chip"><span class="dot"></span>Urban &amp; Municipal Infrastructure</span>
+        <span class="chip"><span class="dot"></span>Mining &amp; Quarrying</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Why Base and Brick</div>
+        <h2>Local ground knowledge, regulatory discipline.</h2>
+        <p>We are based where much of the Terai's infrastructure work actually happens — not headquartered elsewhere and visiting once.</p>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-card">
+          <h4>Proximity to the field</h4>
+          <p>Based in Rajbiraj, Saptari, we reach project sites across the Madhesh plains and adjoining hill districts without long mobilization delays.</p>
+        </div>
+        <div class="why-card">
+          <h4>Multidisciplinary team</h4>
+          <p>Environmental scientists, engineers and social specialists work on the same report, not in separate silos.</p>
+        </div>
+        <div class="why-card">
+          <h4>Built to be implemented</h4>
+          <p>Our EMPs are written for the contractor holding the document on site, not only for the reviewer approving it in an office.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Get in Touch</div>
+        <h2>Tell us about your project.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Base and Brick Engineering Consultant Pvt. Ltd.</h3>
+          <div class="info-row">
+            <div class="k">Office</div>
+            <div class="v">Rajbiraj Municipality – 07<br>Saptari, Madhesh Province, Nepal</div>
+          </div>
+          <div class="info-row">
+            <div class="k">Phone</div>
+            <div class="v">+977-XX-XXXXXX<small>Replace with your registered office number</small></div>
+          </div>
+          <div class="info-row">
+            <div class="k">Email</div>
+            <div class="v">info@baseandbrick.com.np<small>Replace with your working email address</small></div>
+          </div>
+          <div class="info-row">
+            <div class="k">Hours</div>
+            <div class="v">Sunday – Friday, 10:00 – 17:00<small>Nepal Standard Time</small></div>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); this.querySelector('.submit-btn').textContent='Message sent';">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="org">Organization</label>
+              <input id="org" type="text" placeholder="Company or agency">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="service">Service needed</label>
+              <select id="service">
+                <option>Initial Environmental Examination (IEE)</option>
+                <option>Environmental Impact Assessment (EIA)</option>
+                <option>Environmental Management Plan (EMP)</option>
+                <option>Compliance Monitoring / Audit</option>
+                <option>Other / Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field full">
+              <label for="message">Project details</label>
+              <textarea id="message" placeholder="Project type, location and current stage"></textarea>
+            </div>
+          </div>
+          <button class="submit-btn" type="submit">Send message</button>
+          <p class="form-note">This form is a static demo — connect it to an email service or backend before publishing.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-text">Base and Brick<small style="color:#8B8271;">Engineering Consultant Pvt. Ltd.</small></span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="#services">IEE</a>
+          <a href="#services">EIA</a>
+          <a href="#services">EMP</a>
+          <a href="#services">Compliance Audit</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#about">About</a>
+          <a href="#process">Our Process</a>
+          <a href="#sectors">Sectors</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <span>Rajbiraj Municipality – 07</span>
+          <span>Saptari, Nepal</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Base and Brick Engineering Consultant Pvt. Ltd. All rights reserved.</span>
+      <span>Rajbiraj, Saptari · Nepal</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // brick wall build-in for hero base
+  (function(){
+    const wall = document.getElementById('brick-wall');
+    if(!wall) return;
+    const rowCount = 3;
+    const widths = [34, 22, 40, 28, 30, 24, 36, 26, 20, 32];
+    for(let r=0; r<rowCount; r++){
+      const row = document.createElement('div');
+      row.className = 'bricks-row';
+      row.style.marginBottom = '3px';
+      const offset = r % 2 === 1;
+      for(let i=0; i<26; i++){
+        const b = document.createElement('div');
+        b.className = 'brick';
+        const w = widths[(i + r) % widths.length];
+        b.style.width = w + 'px';
+        b.style.opacity = (0.35 + (r * 0.22)).toFixed(2);
+        if(offset && i === 0){ b.style.width = (w/2)+'px'; }
+        row.appendChild(b);
+      }
+      wall.appendChild(row);
+    }
+  })();
+
+  // scroll reveal
+  (function(){
+    const items = document.querySelectorAll('.reveal, .process-row');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    items.forEach(el=>obs.observe(el));
+  })();
+</script>
+
+</body>
+</html>
